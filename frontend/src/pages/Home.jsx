@@ -15,6 +15,7 @@ import About from '../components/about/About';
 import ServicesList from '../components/services/ServicesList';
 import DoctorList from '../components/doctors/DoctorList';
 import FaqList from '../components/faq/FaqList';
+import Testimonial from '../components/testimonial/Testimonial';
 
 export default function Home() {
   return (
@@ -257,6 +258,8 @@ export default function Home() {
             World-class care for everyone. Our health System offers unmatched, expert health care.
           </p>
         </div>
+
+        <Testimonial />
       </div>
     </section>
 
