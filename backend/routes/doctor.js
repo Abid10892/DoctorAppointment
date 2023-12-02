@@ -3,6 +3,7 @@ import reviewRouter from "./review.js";
 import {
   allDoctor,
   deleteDoctor,
+  getDoctorProfile,
   getSingleDoctor,
   updateDoctor,
 } from "../controllers/doctor.js";
@@ -15,6 +16,12 @@ router.use("/:doctorId/reviews", reviewRouter);
 
 router.put("/:id", authenticate, restrict(["doctor"]), updateDoctor);
 router.delete("/:id", authenticate, restrict(["doctor"]), deleteDoctor);
+router.delete(
+  "/profile/me",
+  authenticate,
+  restrict(["doctor"]),
+  getDoctorProfile
+);
 router.get("/:id", getSingleDoctor);
 router.get("/", allDoctor);
 
