@@ -62,7 +62,6 @@ export const allUser = async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   const userId = req.userId;
-
   try {
     const user = await User.findById(userId);
 
@@ -73,13 +72,11 @@ export const getUserProfile = async (req, res) => {
     }
 
     const { password, ...rest } = user._doc;
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Profile info is getting",
-        data: { ...rest },
-      });
+    res.status(200).json({
+      success: true,
+      message: "Profile info is getting",
+      data: { ...rest },
+    });
   } catch (err) {
     return res
       .status(500)
@@ -97,13 +94,11 @@ export const getMyAppointment = async (req, res) => {
       "-password"
     );
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Appointment info is getting",
-        data: doctors,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Appointment info is getting",
+      data: doctors,
+    });
   } catch (error) {
     return res
       .status(500)

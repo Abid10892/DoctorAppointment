@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { token } from '../config';
+import { token } from '../config.js';
 
 export default function useFetchData(url) {
     const [data, setData] = useState([]);
@@ -15,7 +15,6 @@ export default function useFetchData(url) {
                     headers:{Authorization: `Bearer ${token}`}
                 })
                 const result = await res.json();
-    
                 if(!res.ok){
                     throw new Error(result.message + 'emoji')
                 }
@@ -28,7 +27,7 @@ export default function useFetchData(url) {
                 setError(err.message);
             }
         }
-        fetchData()
+        fetchData();
     },[url])
   return {data, loading, error}
 }
